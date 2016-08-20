@@ -2,12 +2,61 @@
 
 int main(int argc, char const *argv[]) {
 
-  Fisica *fisica = new Fisica();
-  Juridica *juridica = new Juridica();
 
-  string texto; int valor;
+  string texto = "";
+  int valor, qtd = 0;
 
-  cout << "informe o nome da pessoa Fisica" << endl;
+  // Pessoa *a = new Pessoa();
+  Pessoa *raiz = NULL;
+  Pessoa *novo = NULL;
+
+  cout << "Quantas pessoas deseja inserir:" << endl;
+  cin >> qtd;
+
+  while(qtd>0){
+    novo = new Pessoa();
+    cout << "diga o nome:" << endl;
+    cin >> texto;
+    novo->setNome(texto);
+
+    cout << "informe a idade:" << endl;
+    cin >> valor;
+    novo->setIdade(valor);
+
+    if(raiz == NULL)
+      raiz = novo;
+    else
+      raiz->inserir(novo);
+
+    qtd--;
+  }
+
+  cout << "DADOS DA PESSOA:" << endl;
+  cout << raiz->getNome() << " - " << raiz->getIdade() << endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // Fisica *fisica = new Fisica();
+  // Juridica *juridica = new Juridica();
+
+  /*cout << "informe o nome da pessoa Fisica" << endl;
   cin >> texto;
   fisica->setNome(texto);
 
@@ -55,6 +104,6 @@ int main(int argc, char const *argv[]) {
   cout << juridica->getCpf() << endl;
   cout << juridica->getRg() << endl;
   cout << juridica->getCnpj() << endl << endl;
-
+  */
   return 0;
 }

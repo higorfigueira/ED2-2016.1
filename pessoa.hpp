@@ -77,11 +77,54 @@ void inserir (Pessoa *novo){
 
 }
 
-};//fim classe Pessoa!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+int mostraPre(){
+    cout << this->idade << endl;
 
+    if(this->esquerda == NULL && this->direita == NULL)
+      return 0;
+    else{
+    if(this->esquerda != NULL)
+      this->esquerda->mostraPre();
+    if(this->direita != NULL)
+      this->direita->mostraPre();
+    }
+}
 
+int mostraEm(){
+    if(this->esquerda != NULL)
+      this->esquerda->mostraEm();
 
+    cout << this->idade << endl;
 
+    if(this->direita != NULL)
+      this->direita->mostraEm();
+
+    return 1;
+}
+
+int mostraPos(){
+    if(this->esquerda != NULL)
+      this->esquerda->mostraPos();
+
+    if(this->direita != NULL)
+      this->direita->mostraPos();
+
+    cout << this->idade << endl;
+
+    return 1;
+}
+
+void deletarApohaToda(){
+  if(this->esquerda != NULL)
+    this->esquerda->deletarApohaToda();
+
+  if(this->direita != NULL)
+    this->direita->deletarApohaToda();
+
+  delete this;
+}
+
+};//fim classe Pessoa!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
